@@ -4,452 +4,419 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Kleeners | Pest Control & Hygiene — Centurion</title>
-  <meta name="description" content="Professional pest control and hygiene services in Centurion and surrounding areas. Cockroaches, ants, rodents, bed bugs, termites and more. 5.0★ from 77+ reviews. Free quotes." />
+  <meta name="description" content="Professional pest control and hygiene in Centurion. Cockroaches, ants, rodents, bed bugs, termites and more. 5.0★ from 77+ Google reviews. Free quotes." />
+  <link rel="canonical" href="https://thekleeners.co.za/" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            surface: 'var(--surface)',
+            'surface-elevated': 'var(--surface-elevated)',
+            border: 'var(--border)',
+            foreground: 'var(--foreground)',
+            muted: 'var(--muted-foreground)',
+            primary: 'var(--primary)',
+            'primary-foreground': 'var(--primary-foreground)',
+          },
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            elegant: '0 20px 60px -15px rgba(0,0,0,0.55)',
+            card: '0 10px 30px -12px rgba(0,0,0,0.45)',
+          },
+        },
+      },
+    };
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="bg-background text-foreground font-sans antialiased">
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="#" class="logo">
-        <img src="images/logo.png" alt="The Kleeners logo" />
-        <span>The Kleeners</span>
+  <!-- HEADER -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-transparent py-4">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <a href="#home" class="flex items-center gap-3">
+        <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-background ring-1 ring-border overflow-hidden">
+          <img src="images/logo.png" alt="The Kleeners logo" class="h-11 w-11 object-cover" width="44" height="44" />
+        </span>
+        <span class="hidden sm:block leading-tight">
+          <span class="block font-display text-sm font-bold tracking-tight">THE KLEENERS</span>
+          <span class="block text-[10px] uppercase tracking-[0.2em] text-muted">Pest Control & Hygiene</span>
+        </span>
       </a>
-      <nav class="nav" id="nav">
-        <a href="#services">Services</a>
-        <a href="#why">Why Us</a>
-        <a href="#work">Our Work</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#quote" class="btn btn-primary">Get a Quote</a>
+
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="#home" class="rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-foreground hover:bg-white/5">Home</a>
+        <a href="#services" class="rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-foreground hover:bg-white/5">Services</a>
+        <a href="#work" class="rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-foreground hover:bg-white/5">Our Work</a>
+        <a href="#reviews" class="rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-foreground hover:bg-white/5">Reviews</a>
+        <a href="#about" class="rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-foreground hover:bg-white/5">About</a>
+        <a href="#contact" class="rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-foreground hover:bg-white/5">Contact</a>
       </nav>
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+
+      <div class="hidden md:flex items-center gap-2">
+        <a href="tel:+27823852963" class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium hover:bg-surface-elevated transition">Call Now</a>
+        <a href="https://wa.me/27823852963?text=Hi%20The%20Kleeners%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full gradient-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-elegant transition hover:brightness-110">Request Quote</a>
+      </div>
+
+      <button id="menu-toggle" class="lg:hidden grid h-10 w-10 place-items-center rounded-lg border border-border" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="h-5 w-5" id="menu-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden glass-nav border-t border-border">
+      <div class="mx-auto max-w-7xl px-4 py-4 flex flex-col gap-1">
+        <a href="#home" class="mobile-link rounded-lg px-3 py-2.5 text-sm text-muted hover:text-foreground hover:bg-white/5">Home</a>
+        <a href="#services" class="mobile-link rounded-lg px-3 py-2.5 text-sm text-muted hover:text-foreground hover:bg-white/5">Services</a>
+        <a href="#work" class="mobile-link rounded-lg px-3 py-2.5 text-sm text-muted hover:text-foreground hover:bg-white/5">Our Work</a>
+        <a href="#reviews" class="mobile-link rounded-lg px-3 py-2.5 text-sm text-muted hover:text-foreground hover:bg-white/5">Reviews</a>
+        <a href="#about" class="mobile-link rounded-lg px-3 py-2.5 text-sm text-muted hover:text-foreground hover:bg-white/5">About</a>
+        <a href="#contact" class="mobile-link rounded-lg px-3 py-2.5 text-sm text-muted hover:text-foreground hover:bg-white/5">Contact</a>
+        <div class="flex gap-2 pt-2">
+          <a href="tel:+27823852963" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm">Call</a>
+          <a href="https://wa.me/27823852963" target="_blank" rel="noopener" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full gradient-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground">Quote</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-badge">
-          <span>★</span> 5.0 Google · 77+ Reviews · Centurion
-        </div>
-        <h1>We don’t just clean.<br><span>We SUPER KLEEN.</span></h1>
-        <p class="lead">
-          Professional pest control and hygiene for homes, offices, estates and businesses.
-          Fast response. Thorough work. Guaranteed results.
-        </p>
-        <div class="hero-actions">
-          <a href="#quote" class="btn btn-primary">Request a Free Quote</a>
-          <a href="https://wa.me/27823852963?text=Hi%20The%20Kleeners%2C%20I%27d%20like%20a%20quote%20for%20pest%20control." class="btn btn-whatsapp" target="_blank" rel="noopener">
-            WhatsApp Us
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <strong>5.0★</strong>
-            <span>Google rating</span>
+  <main>
+    <!-- HERO -->
+    <section id="home" class="relative isolate overflow-hidden pt-28 sm:pt-32">
+      <div class="absolute inset-0 -z-10">
+        <img src="images/team.jpg" alt="The Kleeners team" class="h-full w-full object-cover" id="hero-img" />
+        <div class="absolute inset-0 gradient-hero"></div>
+        <div class="absolute inset-0 gradient-glow"></div>
+      </div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28 lg:pb-36 pt-10 sm:pt-16">
+        <div class="max-w-3xl animate-fade-up">
+          <span class="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs font-medium text-muted">
+            <span class="h-1.5 w-1.5 rounded-full bg-primary pulse-dot"></span>
+            5.0★ Google · 77+ Reviews · Centurion
+          </span>
+          <h1 class="mt-5 font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
+            We don't just clean.<br />
+            <span class="gradient-text">We SUPER KLEEN.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-base sm:text-lg text-muted leading-relaxed">
+            Professional pest control and hygiene for homes, offices, estates and businesses. Fast response. Thorough work. Guaranteed results.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="https://wa.me/27823852963?text=Hi%20The%20Kleeners%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:brightness-110 transition">Request a Free Quote</a>
+            <a href="tel:+27823852963" class="inline-flex items-center gap-2 rounded-full glass px-6 py-3.5 text-sm font-semibold hover:bg-white/10 transition">Call Now</a>
           </div>
-          <div class="stat">
-            <strong>77+</strong>
-            <span>Happy clients</span>
-          </div>
-          <div class="stat">
-            <strong>B-BBEE</strong>
-            <span>Level 1</span>
+          <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+            <div class="glass rounded-xl px-3 py-3 flex items-center gap-2"><span class="text-primary">★</span><span class="text-xs sm:text-sm font-medium">5.0 Google</span></div>
+            <div class="glass rounded-xl px-3 py-3 flex items-center gap-2"><span class="text-primary">✓</span><span class="text-xs sm:text-sm font-medium">77+ Reviews</span></div>
+            <div class="glass rounded-xl px-3 py-3 flex items-center gap-2"><span class="text-primary">✓</span><span class="text-xs sm:text-sm font-medium">B-BBEE L1</span></div>
+            <div class="glass rounded-xl px-3 py-3 flex items-center gap-2"><span class="text-primary">✓</span><span class="text-xs sm:text-sm font-medium">Centurion</span></div>
           </div>
         </div>
       </div>
-      <div class="hero-visual">
-        <img src="images/team.jpg" alt="The Kleeners team ready for service" />
-        <div class="hero-float">
-          <img src="images/work-office-1.jpg" alt="Technician at work" />
-          <div>
-            <strong>On-site & professional</strong>
-            <span>Homes · Offices · Estates</span>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section-padding">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10 sm:mb-14">
+          <p class="eyebrow">What we treat</p>
+          <h2 class="section-title">Complete <span class="gradient-text">Pest Control & Hygiene</span></h2>
+          <p class="section-sub">From cockroaches and bed bugs to termites and commercial fogging — one professional team.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div class="service-card"><span class="service-icon">🪳</span><div><p class="font-semibold text-sm">Cockroach Control</p><p class="text-xs text-muted">Homes & commercial kitchens</p></div></div>
+          <div class="service-card"><span class="service-icon">🐜</span><div><p class="font-semibold text-sm">Ant Control</p><p class="text-xs text-muted">Indoor & outdoor management</p></div></div>
+          <div class="service-card"><span class="service-icon">🐀</span><div><p class="font-semibold text-sm">Rodent Control</p><p class="text-xs text-muted">Safe exclusion & treatment</p></div></div>
+          <div class="service-card"><span class="service-icon">🛏️</span><div><p class="font-semibold text-sm">Bed Bug Treatment</p><p class="text-xs text-muted">Sleep peacefully again</p></div></div>
+          <div class="service-card"><span class="service-icon">🪵</span><div><p class="font-semibold text-sm">Termite Treatment</p><p class="text-xs text-muted">Protect your structure</p></div></div>
+          <div class="service-card"><span class="service-icon">🦟</span><div><p class="font-semibold text-sm">Flea & Fly Control</p><p class="text-xs text-muted">Flying & biting pests</p></div></div>
+          <div class="service-card"><span class="service-icon">🐝</span><div><p class="font-semibold text-sm">Wasp Removal</p><p class="text-xs text-muted">Safe nest removal</p></div></div>
+          <div class="service-card"><span class="service-icon">🐟</span><div><p class="font-semibold text-sm">Silverfish Control</p><p class="text-xs text-muted">Moisture-loving pests</p></div></div>
+          <div class="service-card"><span class="service-icon">💨</span><div><p class="font-semibold text-sm">Microbial Fogging</p><p class="text-xs text-muted">Hard-to-reach hygiene</p></div></div>
+          <div class="service-card"><span class="service-icon">✨</span><div><p class="font-semibold text-sm">Hygiene Solutions</p><p class="text-xs text-muted">Deep clean & decontaminate</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section-padding">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10 sm:mb-14">
+          <p class="eyebrow">Why The Kleeners</p>
+          <h2 class="section-title">What <span class="gradient-text">sets us apart</span></h2>
+          <p class="section-sub">"No job too big or too small." We treat every client like family.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="feature-card"><div class="feature-icon">✓</div><h3 class="font-semibold">SABS-approved products</h3><p class="mt-2 text-sm text-muted">Non-toxic and approved chemicals applied responsibly.</p></div>
+          <div class="feature-card"><div class="feature-icon">★</div><h3 class="font-semibold">Guaranteed workmanship</h3><p class="mt-2 text-sm text-muted">Treatment reports and recommendations after every job.</p></div>
+          <div class="feature-card"><div class="feature-icon">💬</div><h3 class="font-semibold">Free quotations</h3><p class="mt-2 text-sm text-muted">Clear, competitive pricing tailored to your property.</p></div>
+          <div class="feature-card"><div class="feature-icon">📅</div><h3 class="font-semibold">Flexible contracts</h3><p class="mt-2 text-sm text-muted">Once-off or ongoing month-to-month programmes.</p></div>
+          <div class="feature-card"><div class="feature-icon">⚡</div><h3 class="font-semibold">Fast & professional</h3><p class="mt-2 text-sm text-muted">Punctual technicians who explain the process.</p></div>
+          <div class="feature-card"><div class="feature-icon">🏆</div><h3 class="font-semibold">B-BBEE Level 1</h3><p class="mt-2 text-sm text-muted">Proudly South African — trusted by homes and corporates.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK: videos + carousel -->
+    <section id="work" class="section-padding">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10 sm:mb-14">
+          <p class="eyebrow">In the field</p>
+          <h2 class="section-title">See us <span class="gradient-text">at work</span></h2>
+          <p class="section-sub">Real treatments at residential and commercial properties.</p>
+        </div>
+
+        <div class="video-reels">
+          <div class="reel">
+            <video src="videos/work-1.mp4" controls muted loop playsinline preload="metadata" data-autoplay-reel></video>
+            <div class="reel-label">Residential treatment</div>
+          </div>
+          <div class="reel">
+            <video src="videos/work-2.mp4" controls muted loop playsinline preload="metadata" data-autoplay-reel></video>
+            <div class="reel-label">Property perimeter work</div>
+          </div>
+          <div class="reel">
+            <video src="videos/work-3.mp4" controls muted loop playsinline preload="metadata" data-autoplay-reel></video>
+            <div class="reel-label">On-site service</div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Services -->
-  <section class="services" id="services">
-    <div class="container">
-      <p class="section-label">What we treat</p>
-      <h2 class="section-title">Complete Pest Control & Hygiene</h2>
-      <p class="section-sub">From cockroaches and bed bugs to termites and commercial fogging — one professional team for residential and business properties.</p>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🪳</div>
-          <h3>Cockroach Control</h3>
-          <p>Thorough treatment and prevention for homes and commercial kitchens.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🐜</div>
-          <h3>Ant Control</h3>
-          <p>Indoor and outdoor ant management that stops trails at the source.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🐀</div>
-          <h3>Rodent Control</h3>
-          <p>Safe, effective rodent management and exclusion for properties of all sizes.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🛏️</div>
-          <h3>Bed Bug Treatment</h3>
-          <p>Targeted bed bug elimination so you can sleep peacefully again.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🪵</div>
-          <h3>Termite Treatment</h3>
-          <p>Inspection and treatment to protect structures from termite damage.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🦟</div>
-          <h3>Flea & Fly Control</h3>
-          <p>Effective control of fleas, flies and other flying pests.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🐝</div>
-          <h3>Wasp Removal</h3>
-          <p>Safe removal of wasp nests around homes and commercial sites.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🐟</div>
-          <h3>Silverfish Control</h3>
-          <p>Treatment for silverfish and other moisture-loving pests.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💨</div>
-          <h3>Microbial Fogging</h3>
-          <p>Fine mist fogging that reaches hard-to-clean spaces for hygiene.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">✨</div>
-          <h3>Hygiene Solutions</h3>
-          <p>Deep cleaning and decontamination for offices, schools and facilities.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Us -->
-  <section class="why" id="why">
-    <div class="container">
-      <p class="section-label">Why The Kleeners</p>
-      <h2 class="section-title">What sets us apart</h2>
-      <p class="section-sub">“No job too big or too small.” We treat every client like family and deliver professional, reliable results.</p>
-
-      <div class="why-grid">
-        <div class="why-card">
-          <h3>SABS-approved products</h3>
-          <p>Non-toxic and approved chemicals applied responsibly for homes and businesses.</p>
-        </div>
-        <div class="why-card">
-          <h3>Guaranteed workmanship</h3>
-          <p>Quality work with treatment reports and recommendations after every job.</p>
-        </div>
-        <div class="why-card">
-          <h3>Free quotations</h3>
-          <p>Clear, competitive pricing with no pressure — tailored to your property.</p>
-        </div>
-        <div class="why-card">
-          <h3>Flexible contracts</h3>
-          <p>Once-off treatments or ongoing month-to-month and long-term programmes.</p>
-        </div>
-        <div class="why-card">
-          <h3>Fast & professional</h3>
-          <p>Punctual technicians who explain the process and leave your space clean.</p>
-        </div>
-        <div class="why-card">
-          <h3>B-BBEE Level 1</h3>
-          <p>Proudly South African, Level 1 compliant — trusted by homes and corporates.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work / Videos -->
-  <section class="videos" id="work">
-    <div class="container">
-      <p class="section-label">In the field</p>
-      <h2 class="section-title">See us at work</h2>
-      <p class="section-sub">Real treatments at residential and commercial properties — professional, thorough, and careful.</p>
-
-      <div class="video-reels">
-        <div class="reel">
-          <video
-            src="videos/work-1.mp4"
-            controls
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            data-autoplay-reel
-          ></video>
-          <div class="reel-label">Residential treatment</div>
-        </div>
-        <div class="reel">
-          <video
-            src="videos/work-2.mp4"
-            controls
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            data-autoplay-reel
-          ></video>
-          <div class="reel-label">Property perimeter work</div>
-        </div>
-        <div class="reel">
-          <video
-            src="videos/work-3.mp4"
-            controls
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            data-autoplay-reel
-          ></video>
-          <div class="reel-label">On-site service</div>
-        </div>
-      </div>
-
-      <div class="carousel-wrap">
-        <button type="button" class="carousel-btn prev" id="carouselPrev" aria-label="Previous">‹</button>
-        <div class="carousel" id="carousel" style="overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;">
-          <div class="carousel-track" style="display:flex;flex-direction:row;flex-wrap:nowrap;gap:14px;width:max-content;">
-            <img src="images/work-office-1.jpg" alt="Office fogging treatment" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/work-office-2.jpg" alt="Commercial reception treatment" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/work-office-3.jpg" alt="Office corridor treatment" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/work-residential.jpg" alt="Residential outdoor treatment" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/team.jpg" alt="The Kleeners team" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/20210301_211158.jpg" alt="The Kleeners at work" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/20210301_211921.jpg" alt="The Kleeners at work" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/20210301_211923.jpg" alt="The Kleeners at work" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/20200610_171631.jpg" alt="The Kleeners at work" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/20200606_103057.jpg" alt="The Kleeners at work" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/20200610_171622.jpg" alt="The Kleeners at work" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-            <img src="images/20200614_102308.jpg" alt="The Kleeners at work" style="flex-shrink:0;width:min(280px,85vw);aspect-ratio:9/16;height:auto;object-fit:cover;border-radius:18px;" />
-          </div>
-        </div>
-        <button type="button" class="carousel-btn next" id="carouselNext" aria-label="Next">›</button>
-      </div>
-      <p class="carousel-hint">Swipe left / right to see more</p>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section class="reviews" id="reviews">
-    <div class="container">
-      <div class="reviews-header">
-        <div>
-          <p class="section-label">Client feedback</p>
-          <h2 class="section-title">What clients say</h2>
-          <p class="section-sub" style="margin-bottom:0;">Real Google reviews from homes and businesses we serve.</p>
-        </div>
-        <div class="rating-badge">
-          <div class="score">5.0</div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div style="font-size:0.85rem;color:var(--grey);">77+ Google reviews</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Absolutely such a pleasure dealing with Majeed! Our pest problem is sorted out and he is always on time with his maintenance at our shop. Highly recommended!!”</p>
-          <div class="review-author">Lizelle Jeacocks</div>
-          <div class="review-meta">Google · 3 months ago</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“I would like to sincerely thank The Kleeners for the amazing job they did fumigating my place for bed bugs. For the first time in a very long time, I finally had a peaceful sleep without scratching throughout the night.”</p>
-          <div class="review-author">Zama Dlamini</div>
-          <div class="review-meta">Google · 2 months ago</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“From our very first message to the day of service, the team was incredibly professional. Our technician explained everything clearly and thoroughly. Fantastic service — we’ll definitely be using them again.”</p>
-          <div class="review-author">Michaela Davel</div>
-          <div class="review-meta">Google · 5 months ago</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Best and friendly service, and super efficient. They go further to ensure good reliable service and customer care next level. The Kleeners will be going forward on my recommend list.”</p>
-          <div class="review-author">Urchula Andrews</div>
-          <div class="review-meta">Google · 5 months ago</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Excellent service by the team. They explained in detail how their products work and were very thorough. We have been pest free and will use their services continuously.”</p>
-          <div class="review-author">Sumesh Padayachie</div>
-          <div class="review-meta">Google · 8 months ago</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“They came out to us on short notice — fast, efficient service. Definitely recommended, you won’t be disappointed.”</p>
-          <div class="review-author">Keri Molefe</div>
-          <div class="review-meta">Google · 3 months ago</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quote -->
-  <section class="quote" id="quote">
-    <div class="container quote-grid">
-      <div class="quote-info">
-        <p class="section-label">Get started</p>
-        <h2>Request a free quote</h2>
-        <p>Tell us a bit about your property and the pest issue. We’ll come back with a clear, competitive quote — no obligation.</p>
-
-        <div class="contact-list">
-          <div class="contact-item">
-            <span>📞</span>
-            <a href="tel:+27823852963">+27 82 385 2963</a>
-          </div>
-          <div class="contact-item">
-            <span>💬</span>
-            <a href="https://wa.me/27823852963" target="_blank" rel="noopener">WhatsApp us</a>
-          </div>
-          <div class="contact-item">
-            <span>✉️</span>
-            <a href="mailto:info@thekleeners.co.za">info@thekleeners.co.za</a>
-          </div>
-          <div class="contact-item">
-            <span>📍</span>
-            <span>919 Fregatvoel St, Celtisdal, Centurion, 0157</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-card">
-        <h3>Quote request</h3>
-        <form id="quoteForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full name *</label>
-              <input type="text" id="name" name="name" required placeholder="Your name" />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone / WhatsApp *</label>
-              <input type="tel" id="phone" name="phone" required placeholder="082 000 0000" />
+        <div class="carousel-wrap">
+          <button type="button" class="carousel-btn" id="carouselPrev" aria-label="Previous">‹</button>
+          <div class="carousel" id="carousel">
+            <div class="carousel-track">
+              <img src="images/work-office-1.jpg" alt="Office fogging" />
+              <img src="images/work-office-2.jpg" alt="Commercial reception" />
+              <img src="images/work-office-3.jpg" alt="Office corridor" />
+              <img src="images/work-residential.jpg" alt="Residential outdoor" />
+              <img src="images/team.jpg" alt="The Kleeners team" />
+              <img src="images/20210301_211158.jpg" alt="At work" />
+              <img src="images/20210301_211921.jpg" alt="At work" />
+              <img src="images/20210301_211923.jpg" alt="At work" />
+              <img src="images/20200610_171631.jpg" alt="At work" />
+              <img src="images/20200606_103057.jpg" alt="At work" />
+              <img src="images/20200610_171622.jpg" alt="At work" />
+              <img src="images/20200614_102308.jpg" alt="At work" />
             </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@email.com" />
+          <button type="button" class="carousel-btn" id="carouselNext" aria-label="Next">›</button>
+        </div>
+        <p class="carousel-hint">Tap a photo for full size · Swipe to browse</p>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="section-padding">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10 sm:mb-14">
+          <p class="eyebrow">Client feedback</p>
+          <h2 class="section-title">What clients <span class="gradient-text">say</span></h2>
+          <p class="section-sub">5.0★ from 77+ Google reviews.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="review-card"><div class="stars">★★★★★</div><p class="text-sm text-muted leading-relaxed">"Absolutely such a pleasure dealing with Majeed! Our pest problem is sorted out and he is always on time. Highly recommended!!"</p><p class="mt-3 text-sm font-semibold">Lizelle Jeacocks</p></div>
+          <div class="review-card"><div class="stars">★★★★★</div><p class="text-sm text-muted leading-relaxed">"Amazing job fumigating for bed bugs. For the first time in a long time, I finally had a peaceful sleep without scratching."</p><p class="mt-3 text-sm font-semibold">Zama Dlamini</p></div>
+          <div class="review-card"><div class="stars">★★★★★</div><p class="text-sm text-muted leading-relaxed">"From first message to the day of service, incredibly professional. Technician explained everything clearly. We'll use them again."</p><p class="mt-3 text-sm font-semibold">Michaela Davel</p></div>
+          <div class="review-card"><div class="stars">★★★★★</div><p class="text-sm text-muted leading-relaxed">"Best and friendly service, super efficient. Customer care next level. On my recommend list."</p><p class="mt-3 text-sm font-semibold">Urchula Andrews</p></div>
+          <div class="review-card"><div class="stars">★★★★★</div><p class="text-sm text-muted leading-relaxed">"Excellent service. Explained products in detail and were thorough. Pest free — will use continuously."</p><p class="mt-3 text-sm font-semibold">Sumesh Padayachie</p></div>
+          <div class="review-card"><div class="stars">★★★★★</div><p class="text-sm text-muted leading-relaxed">"Came out on short notice — fast, efficient service. Definitely recommended."</p><p class="mt-3 text-sm font-semibold">Keri Molefe</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section-padding">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="eyebrow">About Us</p>
+        <h2 class="section-title mb-8">We don't just clean — <span class="gradient-text">we SUPER KLEEN</span></h2>
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+          <div class="lg:col-span-3 space-y-5 text-muted leading-relaxed">
+            <p>SAYZOE Enterprises (Pty) Ltd, trading as The Kleeners, is a proudly South African owned business specialising in integrated pest control, fumigation and hygiene solutions for homes, offices, estates, schools, hotels, restaurants and factories.</p>
+            <p>Our aim is simple: a clean, hygiene-friendly environment for your family, staff and customers. No job too big or too small — we treat every client like family.</p>
+            <p class="text-foreground font-medium">B-BBEE Level 1 compliant · Centurion based</p>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="propertyType">Property type *</label>
-              <select id="propertyType" name="propertyType" required>
-                <option value="">Select…</option>
-                <option value="free-standing">Free-standing house</option>
-                <option value="complex">Complex / Townhouse</option>
-                <option value="apartment">Apartment</option>
-                <option value="business">Business / Office</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="bedrooms">Bedrooms (if home)</label>
-              <select id="bedrooms" name="bedrooms">
-                <option value="">Select…</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5+">5+</option>
-              </select>
+          <div class="lg:col-span-2">
+            <div class="feature-card">
+              <img src="images/logo.png" alt="" class="h-16 w-16 rounded-2xl object-cover ring-1 ring-border" />
+              <p class="mt-5 text-lg font-display font-semibold leading-snug">"Fast. Thorough. Professional."</p>
+              <p class="mt-3 text-sm text-muted">Serving Centurion and surrounding areas.</p>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="sqm">Business size (sqm)</label>
-              <input type="text" id="sqm" name="sqm" placeholder="e.g. 250" />
-            </div>
-            <div class="form-group">
-              <label for="location">Location / Suburb *</label>
-              <input type="text" id="location" name="location" required placeholder="e.g. Centurion, Pretoria" />
-            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-padding">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10 sm:mb-14">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="section-title">Answers, <span class="gradient-text">upfront</span></h2>
+        </div>
+        <div class="mx-auto max-w-3xl space-y-3">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span class="font-medium">Are treatments safe for children and pets?</span><span class="faq-chevron">▼</span></button>
+            <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">Yes. We use SABS-approved, responsible products and advise on any ventilation or re-entry time needed.</p></div>
           </div>
-          <div class="form-group">
-            <label for="pest">Pest / service needed *</label>
-            <select id="pest" name="pest" required>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span class="font-medium">Do you offer free quotations?</span><span class="faq-chevron">▼</span></button>
+            <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">Yes — free, competitive quotes for homes and businesses. WhatsApp or use the form below.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span class="font-medium">What areas do you service?</span><span class="faq-chevron">▼</span></button>
+            <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">We're based in Centurion (Celtisdal) and service surrounding areas across Gauteng.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span class="font-medium">Do you service businesses?</span><span class="faq-chevron">▼</span></button>
+            <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">Yes — offices, restaurants, schools, factories, estates and more. Flexible contracts available.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span class="font-medium">How quickly can you come out?</span><span class="faq-chevron">▼</span></button>
+            <div class="faq-answer"><p class="text-sm text-muted leading-relaxed">We aim for fast response, including short-notice call-outs where possible.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div class="mx-auto max-w-6xl relative overflow-hidden rounded-3xl border border-border p-8 sm:p-14 shadow-elegant cta-panel">
+        <div class="relative">
+          <h2 class="section-title">Need pest control <span class="gradient-text">today?</span></h2>
+          <p class="mt-4 max-w-xl text-muted leading-relaxed">Don't wait for pests to take over. Contact The Kleeners for a fast response and a free quotation.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="https://wa.me/27823852963?text=Hi%20The%20Kleeners%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener" class="btn-primary">WhatsApp Quote</a>
+            <a href="tel:+27823852963" class="glass rounded-full px-6 py-3.5 text-sm font-semibold hover:bg-white/10 transition inline-flex items-center gap-2">Call Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT + QUOTE -->
+    <section id="contact" class="section-padding">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10">
+          <p class="eyebrow">Get in touch</p>
+          <h2 class="section-title">Contact <span class="gradient-text">The Kleeners</span></h2>
+          <p class="section-sub">Call, WhatsApp or request a free quote below.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+          <a href="tel:+27823852963" class="contact-card"><span class="contact-icon">📞</span><p class="text-xs uppercase tracking-widest text-muted mt-4">Phone</p><p class="text-lg font-semibold mt-1">+27 82 385 2963</p></a>
+          <a href="https://wa.me/27823852963" target="_blank" rel="noopener" class="contact-card"><span class="contact-icon">💬</span><p class="text-xs uppercase tracking-widest text-muted mt-4">WhatsApp</p><p class="text-lg font-semibold mt-1 text-primary">+27 82 385 2963</p></a>
+          <a href="mailto:info@thekleeners.co.za" class="contact-card"><span class="contact-icon">✉️</span><p class="text-xs uppercase tracking-widest text-muted mt-4">Email</p><p class="text-lg font-semibold mt-1 break-all">info@thekleeners.co.za</p></a>
+          <div class="contact-card sm:col-span-2 lg:col-span-3"><span class="contact-icon">📍</span><p class="text-xs uppercase tracking-widest text-muted mt-4">Address</p><p class="text-lg font-semibold mt-1">919 Fregatvoel St, Celtisdal, Centurion, 0157</p></div>
+        </div>
+
+        <div class="quote-form-card max-w-2xl">
+          <h3 class="font-display text-xl font-bold mb-2">Request a free quote</h3>
+          <p class="text-sm text-muted mb-6">We'll respond via WhatsApp or phone.</p>
+          <form id="quote-form">
+            <label class="form-label" for="name">Full name *</label>
+            <input class="form-input" type="text" id="name" name="name" required placeholder="Your name" />
+
+            <label class="form-label" for="phone">Phone / WhatsApp *</label>
+            <input class="form-input" type="tel" id="phone" name="phone" required placeholder="082 000 0000" />
+
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="you@email.com" />
+
+            <label class="form-label" for="property_type">Property type *</label>
+            <select class="form-input" id="property_type" name="property_type" required>
               <option value="">Select…</option>
-              <option value="cockroach">Cockroaches</option>
-              <option value="ants">Ants</option>
-              <option value="rodents">Rodents</option>
-              <option value="bedbugs">Bed bugs</option>
-              <option value="termites">Termites</option>
-              <option value="fleas">Fleas</option>
-              <option value="flies">Flies</option>
-              <option value="wasps">Wasps</option>
-              <option value="silverfish">Silverfish</option>
-              <option value="fogging">Fogging / Hygiene</option>
-              <option value="general">General pest control</option>
-              <option value="other">Other / Not sure</option>
+              <option value="Free-standing house">Free-standing house</option>
+              <option value="Complex / Townhouse">Complex / Townhouse</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Business / Office">Business / Office</option>
+              <option value="Other">Other</option>
             </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Extra details</label>
-            <textarea id="message" name="message" placeholder="Describe the problem, urgency, or any access notes…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send quote request</button>
-          <p class="form-note">We’ll respond via WhatsApp or phone. Your details are only used for this quote.</p>
-        </form>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="images/logo.png" alt="The Kleeners" />
-          <p>SAYZOE Enterprises (Pty) Ltd t/a The Kleeners. Proudly South African. B-BBEE Level 1. We don’t just clean — we SUPER KLEEN.</p>
+            <label class="form-label" for="bedrooms">Bedrooms (if home)</label>
+            <select class="form-input" id="bedrooms" name="bedrooms">
+              <option value="">Select…</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+            </select>
+
+            <label class="form-label" for="sqm">Business size (sqm)</label>
+            <input class="form-input" type="text" id="sqm" name="sqm" placeholder="e.g. 250" />
+
+            <label class="form-label" for="location">Location / Suburb *</label>
+            <input class="form-input" type="text" id="location" name="location" required placeholder="e.g. Centurion" />
+
+            <label class="form-label" for="pest_problem">Pest / service *</label>
+            <select class="form-input" id="pest_problem" name="pest_problem" required>
+              <option value="">Select…</option>
+              <option>Cockroaches</option><option>Ants</option><option>Rodents</option>
+              <option>Bed bugs</option><option>Termites</option><option>Fleas</option>
+              <option>Flies</option><option>Wasps</option><option>Silverfish</option>
+              <option>Fogging / Hygiene</option><option>General pest control</option>
+              <option>Other / Not sure</option>
+            </select>
+
+            <label class="form-label" for="message">Extra details</label>
+            <textarea class="form-input" id="message" name="message" rows="3" placeholder="Describe the problem…"></textarea>
+
+            <p class="text-xs text-muted mt-5 mb-4">Your details are only used for this quote.</p>
+            <button type="submit" class="btn-primary w-full" id="quote-submit">Send quote request</button>
+            <p id="quote-status" class="text-sm mt-4 hidden"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-surface ring-1 ring-border overflow-hidden">
+              <img src="images/logo.png" alt="The Kleeners" class="h-11 w-11 object-cover" />
+            </span>
+            <span>
+              <span class="block font-display font-bold">THE KLEENERS</span>
+              <span class="block text-xs text-muted">Pest Control & Hygiene</span>
+            </span>
+          </div>
+          <p class="mt-5 text-sm text-muted leading-relaxed max-w-sm">SAYZOE Enterprises (Pty) Ltd. We don't just clean — we SUPER KLEEN. B-BBEE Level 1.</p>
         </div>
         <div>
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#services">Pest Control</a></li>
-            <li><a href="#services">Bed Bug Treatment</a></li>
-            <li><a href="#services">Termite Treatment</a></li>
-            <li><a href="#services">Fogging & Hygiene</a></li>
+          <p class="text-xs uppercase tracking-widest text-muted mb-4">Quick links</p>
+          <ul class="space-y-2 text-sm text-muted">
+            <li><a href="#services" class="hover:text-foreground">Services</a></li>
+            <li><a href="#work" class="hover:text-foreground">Our Work</a></li>
+            <li><a href="#reviews" class="hover:text-foreground">Reviews</a></li>
+            <li><a href="#contact" class="hover:text-foreground">Contact</a></li>
           </ul>
         </div>
         <div>
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="tel:+27823852963">+27 82 385 2963</a></li>
-            <li><a href="mailto:info@thekleeners.co.za">info@thekleeners.co.za</a></li>
-            <li>Centurion, Gauteng</li>
-            <li><a href="https://wa.me/27823852963" target="_blank" rel="noopener">WhatsApp</a></li>
+          <p class="text-xs uppercase tracking-widest text-muted mb-4">Contact</p>
+          <ul class="space-y-2 text-sm text-muted">
+            <li><a href="tel:+27823852963" class="hover:text-foreground">+27 82 385 2963</a></li>
+            <li><a href="mailto:info@thekleeners.co.za" class="hover:text-foreground break-all">info@thekleeners.co.za</a></li>
+            <li><a href="https://wa.me/27823852963" target="_blank" rel="noopener" class="hover:text-foreground">WhatsApp</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2026 The Kleeners. All rights reserved. · Reg: 2020/461707/07</span>
-        <span class="made-by">Made by <a href="https://gliss.co.za/" target="_blank" rel="noopener">GLISS</a></span>
+      <div class="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
+        <p>© <span id="year"></span> The Kleeners. Reg: 2020/461707/07. All rights reserved.</p>
+        <p>Made by <a href="https://gliss.co.za/" target="_blank" rel="noopener" class="gliss-credit">GLISS</a></p>
       </div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a class="float-wa" href="https://wa.me/27823852963?text=Hi%20The%20Kleeners%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
-
+  <a href="https://wa.me/27823852963?text=Hi%20The%20Kleeners%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener" class="whatsapp-fab" aria-label="WhatsApp">💬</a>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" hidden>
@@ -460,6 +427,6 @@
     <div class="lightbox-counter" id="lightboxCounter"></div>
   </div>
 
-  <script src="main.js"></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
