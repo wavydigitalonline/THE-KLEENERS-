@@ -76,3 +76,23 @@ if (form) {
     window.open(url, "_blank", "noopener");
   });
 }
+
+// Gallery carousel arrows
+const carousel = document.getElementById("carousel");
+const prevBtn = document.getElementById("carouselPrev");
+const nextBtn = document.getElementById("carouselNext");
+
+if (carousel && prevBtn && nextBtn) {
+  const scrollAmount = () => {
+    const img = carousel.querySelector("img");
+    return img ? img.offsetWidth + 14 : 300;
+  };
+
+  prevBtn.addEventListener("click", () => {
+    carousel.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    carousel.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+  });
+}
