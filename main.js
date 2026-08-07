@@ -96,3 +96,66 @@ if (carousel && prevBtn && nextBtn) {
     carousel.scrollBy({ left: scrollAmount(), behavior: "smooth" });
   });
 }
+
+
+// Lightbox — full size images with swipe
+(function () {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+  const lightboxCounter = document.getElementById("lightboxCounter");
+  const carouselImgs = Array.from(document.querySelectorAll(".carousel-track img"));
+
+  if (!lightbox || !carouselImgs.length) return;
+
+  let index = 0;
+  let touchStartX = 0;
+
+  function show(i) {
+    index = (i + carouselImgs.length) % carouselImgs.length;
+    const src = carouselImgs[index].getAttribute("src");
+    const alt = carouselImgs[index].getAttribute("alt") || "";
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightboxCounter.textContent = index + 1 + " / " + carouselImgs.length;
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function hide() {
+    lightbox.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  carouselImgs.forEach((img, i) => {
+    img.addEventListener("click", () => show(i));
+  });
+
+  lightboxClose.addEventListener("click", hide);
+  lightboxPrev.addEventListener("click", () => show(index - 1));
+  lightboxNext.addEventListener("click", () => show(index + 1));
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) hide();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") hide();
+    if (e.key === "ArrowLeft") show(index - 1);
+    if (e.key === "ArrowRight") show(index + 1);
+  });
+
+  lightbox.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) < 40) return;
+    if (dx < 0) show(index + 1);
+    else show(index - 1);
+  }, { passive: true });
+})();
