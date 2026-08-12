@@ -594,25 +594,13 @@ textarea.form-input { resize: vertical; }
 }
 
 
-/* Brighter text + bold on hover (client request) */
+/* Desktop + mobile nav: brighter white text (like before, just brighter) + bold on hover */
 #site-header nav a,
 #mobile-menu a.mobile-link {
-  color: rgba(255, 255, 255, 0.88);
-  font-weight: 500;
-  transition: color 0.2s ease, font-weight 0.15s ease, background 0.2s ease;
+  color: rgba(255, 255, 255, 0.92);
 }
 #site-header nav a:hover,
 #mobile-menu a.mobile-link:hover {
   color: #ffffff;
   font-weight: 700;
-}
-footer a {
-  transition: color 0.2s ease, font-weight 0.15s ease;
-}
-footer a:hover {
-  color: #ffffff !important;
-  font-weight: 700;
-}
-.text-muted {
-  color: var(--muted-foreground) !important;
 }
