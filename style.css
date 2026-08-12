@@ -10,8 +10,8 @@
   --surface: #12171d;
   --surface-elevated: #1a2129;
   --border: rgba(255, 255, 255, 0.08);
-  --foreground: #f5f7f6;
-  --muted-foreground: #98a3a0;
+  --foreground: #ffffff;
+  --muted-foreground: #c5cdc9;
   --primary: #22c55e;
   --primary-light: #4ade80;
   --primary-foreground: #06170d;
@@ -93,20 +93,27 @@ section[id] { scroll-margin-top: 6rem; }
 .section-title {
   font-family: "Bricolage Grotesque", sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
-  line-height: 1.15;
+  font-size: 2.05rem;
+  line-height: 1.12;
   letter-spacing: -0.01em;
+  color: #ffffff;
 }
-@media (min-width: 640px) { .section-title { font-size: 2.5rem; } }
-@media (min-width: 1024px) { .section-title { font-size: 3rem; } }
+@media (min-width: 640px) { .section-title { font-size: 2.65rem; } }
+@media (min-width: 1024px) { .section-title { font-size: 3.15rem; } }
 
 .section-sub {
-  margin-top: 1rem;
+  margin-top: 0.55rem;
   color: var(--muted-foreground);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.65;
 }
-@media (min-width: 640px) { .section-sub { font-size: 1.125rem; } }
+@media (min-width: 640px) { .section-sub { font-size: 1.125rem; margin-top: 0.75rem; } }
+
+/* Tighter gap under section headers on mobile */
+@media (max-width: 639px) {
+  .section-padding .mb-10 { margin-bottom: 1.75rem !important; }
+  .eyebrow { margin-bottom: 0.4rem; }
+}
   /* ---------- services grid ---------- */
 .service-card {
   display: flex;
@@ -584,4 +591,28 @@ textarea.form-input { resize: vertical; }
 .whatsapp-fab {
   background: #25D366 !important;
   color: #fff !important;
+}
+
+
+/* Brighter text + bold on hover (client request) */
+#site-header nav a,
+#mobile-menu a.mobile-link {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 500;
+  transition: color 0.2s ease, font-weight 0.15s ease, background 0.2s ease;
+}
+#site-header nav a:hover,
+#mobile-menu a.mobile-link:hover {
+  color: #ffffff;
+  font-weight: 700;
+}
+footer a {
+  transition: color 0.2s ease, font-weight 0.15s ease;
+}
+footer a:hover {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+.text-muted {
+  color: var(--muted-foreground) !important;
 }
