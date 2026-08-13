@@ -1,6 +1,6 @@
 # The Kleeners — Static Website
 
-Professional pest control & hygiene website for **The Kleeners** (Centurion).
+Professional pest control & hygiene website for **The Kleeners** (Gauteng).
 
 ## Features
 
@@ -16,15 +16,6 @@ Professional pest control & hygiene website for **The Kleeners** (Centurion).
 - Floating WhatsApp button
 - Google reviews section (5.0★ · 77+)
 - Services, why-us, gallery, contact
-
-## Deploy to GitHub Pages
-
-1. Create a new repo (e.g. `thekleeners`)
-2. Upload everything in this folder to the root of the repo
-3. Settings → Pages → Source: `main` branch / root
-4. Site will be live at `https://YOURUSER.github.io/thekleeners/`
-
-Or connect a custom domain (`thekleeners.co.za`) in Pages settings.
 
 ## Edit content later
 
