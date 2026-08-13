@@ -604,3 +604,9 @@ textarea.form-input { resize: vertical; }
   color: #ffffff;
   font-weight: 700;
 }
+
+
+/* header brand size — fill whitespace */
+#site-header .font-display {
+  letter-spacing: 0.02em;
+}
