@@ -606,19 +606,31 @@ textarea.form-input { resize: vertical; }
 }
 
 
-/* header brand size — fill whitespace */
-#site-header .font-display {
-  letter-spacing: 0.02em;
-}
 
 
-/* header logo almost full height of bar */
+
+/* Header logo fills bar height — readable on mobile */
 #site-header {
-  min-height: 5.5rem;
+  padding-top: 0.45rem !important;
+  padding-bottom: 0.45rem !important;
 }
 #site-header.scrolled {
-  min-height: 4.75rem;
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
 }
-#site-header .flex.items-center.gap-4 img {
-  display: block;
+.header-logo {
+  height: 3.75rem;   /* mobile: fills header */
+  width: 3.75rem;
+}
+@media (min-width: 640px) {
+  .header-logo {
+    height: 5rem;    /* desktop: nearly full bar */
+    width: 5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .header-logo {
+    height: 5.25rem;
+    width: 5.25rem;
+  }
 }
