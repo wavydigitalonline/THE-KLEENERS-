@@ -609,23 +609,29 @@ textarea.form-input { resize: vertical; }
 
 
 
-/* Header logo — exact sizes */
+/* Header logo — fill the brand area hard */
 #site-header {
-  padding-top: 0.3rem !important;
-  padding-bottom: 0.3rem !important;
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
 }
 #site-header.scrolled {
-  padding-top: 0.2rem !important;
-  padding-bottom: 0.2rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
 }
 .header-logo {
-  height: 120px;
-  width: 120px;
+  height: 5.5rem;   /* mobile */
+  width: 5.5rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .header-logo {
-    height: 180px;
-    width: 180px;
+    height: 7rem;
+    width: 7rem;
+  }
+}
+@media (min-width: 1024px) {
+  .header-logo {
+    height: 7.5rem; /* desktop — fills the red box */
+    width: 7.5rem;
   }
 }
 
@@ -648,34 +654,3 @@ textarea.form-input { resize: vertical; }
   border-color: var(--primary);
   transform: translateY(-1px);
 }
-
-
-/* Brand: socials under "Pest Control & Hygiene" text only */
-.header-brand {
-  display: flex;
-  align-items: center;
-  min-width: 0;
-}
-.header-brand-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.header-socials {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.45rem;
-}
-.header-socials .social-icon {
-  width: 1.65rem;
-  height: 1.65rem;
-}
-@media (min-width: 768px) {
-  .header-socials .social-icon {
-    width: 1.85rem;
-    height: 1.85rem;
-  }
-}
-
-
