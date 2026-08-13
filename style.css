@@ -609,29 +609,29 @@ textarea.form-input { resize: vertical; }
 
 
 
-/* Header logo fills red-box area */
+/* Header logo — fill the brand area hard */
 #site-header {
-  padding-top: 0.4rem !important;
-  padding-bottom: 0.4rem !important;
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
 }
 #site-header.scrolled {
-  padding-top: 0.3rem !important;
-  padding-bottom: 0.3rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
 }
 .header-logo {
-  height: 4.25rem;
-  width: 4.25rem;
+  height: 5.5rem;   /* mobile */
+  width: 5.5rem;
 }
 @media (min-width: 640px) {
   .header-logo {
-    height: 5.75rem;
-    width: 5.75rem;
+    height: 7rem;
+    width: 7rem;
   }
 }
 @media (min-width: 1024px) {
   .header-logo {
-    height: 6.25rem;
-    width: 6.25rem;
+    height: 7.5rem; /* desktop — fills the red box */
+    width: 7.5rem;
   }
 }
 
