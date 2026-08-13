@@ -610,3 +610,15 @@ textarea.form-input { resize: vertical; }
 #site-header .font-display {
   letter-spacing: 0.02em;
 }
+
+
+/* header logo almost full height of bar */
+#site-header {
+  min-height: 5.5rem;
+}
+#site-header.scrolled {
+  min-height: 4.75rem;
+}
+#site-header .flex.items-center.gap-4 img {
+  display: block;
+}
